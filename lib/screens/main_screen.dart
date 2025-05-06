@@ -27,6 +27,11 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.white60,
+        color: Colors.black87,
+        buttonBackgroundColor: Colors.white.withOpacity(1),
+
+        height: 60,
         key: NavbarKey.getKey(),
         index: _selectedIndex,
         onTap: (index) {
@@ -36,10 +41,10 @@ class _MainScreenState extends State<MainScreen> {
         },
         animationCurve: Curves.fastEaseInToSlowEaseOut,
         animationDuration: const Duration(milliseconds: 450),
-        items: const [
-          Icon(Icons.home, size: 30),
-          Icon(Icons.report, size: 30),
-          Icon(Icons.add_circle_outline, size: 30),
+        items: [
+          Icon(Icons.home, size: 30, color: _selectedIndex == 0 ? Colors.black : Colors.white),
+          Icon(Icons.report, size: 30,  color: _selectedIndex == 1 ? Colors.black : Colors.white),
+          Icon(Icons.add_circle_outline, size: 30,  color: _selectedIndex == 2 ? Colors.black : Colors.white),
         ],
       ),
       body: _screens[_selectedIndex],

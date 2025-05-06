@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/custom-appbar.dart';
+import '../widgets/custom_drawer.dart';
+
 class ReportScreen extends StatefulWidget {
   static const routName = '/report-screen';
   const ReportScreen({super.key});
@@ -9,12 +12,19 @@ class ReportScreen extends StatefulWidget {
 }
 
 class _ReportScreenState extends State<ReportScreen> {
+  bool isDarkMode = false;
+
+  void toggleTheme() {
+    setState(() {
+      isDarkMode = !isDarkMode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Expense Teacker'),
-      ),
+      drawer: CustomDrawer(),
+      appBar: CustomAppBar(isDarkMode: isDarkMode, toggleTheme: toggleTheme, ),
       body: Center(
         child: Text('Report'),
       ),

@@ -1,3 +1,5 @@
+import 'package:expense_tracker_pro/widgets/custom-appbar.dart';
+import 'package:expense_tracker_pro/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -9,15 +11,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool isDarkMode = false;
 
+  void toggleTheme() {
+    setState(() {
+      isDarkMode = !isDarkMode;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Expense Teacker'),
-      ),
+      drawer: CustomDrawer(),
+      appBar: CustomAppBar(isDarkMode: isDarkMode, toggleTheme: toggleTheme, ),
       body: Center(
-        child: Text('Home'),
+        child: Image.asset('assets/images/coin.png'),
       ),
     );
   }
