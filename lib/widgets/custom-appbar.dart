@@ -27,9 +27,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
             children: [
               Image.asset('assets/images/coin.png', height: 46, width: 46),
               SizedBox(width: 12),
-              Text(
-                'Expense Tracker',
-                style: TextStyle(color: Colors.white70),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  'Expense Tracker',
+                  style: TextStyle(color: Colors.white70),
+                ),
               ),
             ],
           ),
